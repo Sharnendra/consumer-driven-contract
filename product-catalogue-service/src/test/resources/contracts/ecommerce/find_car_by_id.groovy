@@ -4,7 +4,7 @@ Contract.make {
 	description "should return person by id=1"
 
 	request {
-		url "/internalget/1"
+		url "/externalget/1"
 		method GET()
 	}
 
@@ -15,7 +15,7 @@ Contract.make {
 		}
 		body (
 			id: 1,
-			stock: 1000,
+			stock: 0,
 			name: "ECOSPORT",
 			type: "Petrol Car"
 		)

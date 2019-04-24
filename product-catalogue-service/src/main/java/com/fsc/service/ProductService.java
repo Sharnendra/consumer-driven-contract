@@ -14,12 +14,14 @@ public class ProductService {
 
 	public ProductService() {
 		personMap = new HashMap<>();
-		personMap.put(1L, new Car(1L, "Richard", "Gere"));
-		personMap.put(2L, new Car(2L, "Emma", "Choplin"));
-		personMap.put(3L, new Car(3L, "Anna", "Carolina"));
+		personMap.put(1L, new Car(1L, 1000L, "ECOSPORT", "Petrol Car"));
+		personMap.put(2L, new Car(2L, 1000L, "S-MAX", "Disel Car"));
+		personMap.put(3L, new Car(3L, 300L, "FORD GT", "Electric Car"));
 	}
 
-	public Car findPersonById(Long id) {
-		return personMap.get(id);
+	public Car findProductById(Long id, boolean isInternallCall) {
+		Car car = personMap.get(id);
+		car.setStock(isInternallCall ? car.getStock() : 0l);
+		return car;
 	}
 }

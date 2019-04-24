@@ -28,8 +28,13 @@ public abstract class BaseClass {
 	@Before
 	public void setup() {
 		RestAssuredMockMvc.standaloneSetup(productRestController);
-
-		Mockito.when(personService.findPersonById(1L)).thenReturn(new Car(1L, "foo", "bee"));
+		// Internal Call
+		Mockito.when(personService.findProductById(1L, true)).thenReturn(new Car(1L, 1000L, "ECOSPORT", "Petrol Car"));
+		Mockito.when(personService.findProductById(2L, true)).thenReturn(new Car(2L, 1000L, "S-MAX", "Disel Car"));
+		Mockito.when(personService.findProductById(3L, true)).thenReturn(new Car(3L, 3000L, "FORD GT", "Electric Car"));
+		// External Call
+		Mockito.when(personService.findProductById(1L, false)).thenReturn(new Car(1L, 0L, "ECOSPORT", "Petrol Car"));
+		Mockito.when(personService.findProductById(2L, false)).thenReturn(new Car(2L, 0L, "S-MAX", "Disel Car"));
+		Mockito.when(personService.findProductById(3L, false)).thenReturn(new Car(3L, 0L, "FORD GT", "Electric Car"));
 	}
-
 }

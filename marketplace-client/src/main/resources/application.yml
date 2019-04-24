@@ -1,3 +1,2 @@
-spring.application.name=contract-rest-client
-
-server.port=9000
+server:
+  port: 8888

@@ -28,13 +28,13 @@ public class ContractRestClientApplicationTest {
 		RestTemplate restTemplate = new RestTemplate();
 
 		// when:
-		ResponseEntity<Car> personResponseEntity = restTemplate.getForEntity("http://localhost:8100/internalget/1",
+		ResponseEntity<Car> personResponseEntity = restTemplate.getForEntity("http://localhost:8100/externalget/1",
 				Car.class);
 
 		// then:
 		BDDAssertions.then(personResponseEntity.getStatusCodeValue()).isEqualTo(200);
 		BDDAssertions.then(personResponseEntity.getBody().getId()).isEqualTo(1l);
-		BDDAssertions.then(personResponseEntity.getBody().getStock()).isEqualTo(1000l);
+		BDDAssertions.then(personResponseEntity.getBody().getStock()).isEqualTo(0L);
 		BDDAssertions.then(personResponseEntity.getBody().getName()).isEqualTo("ECOSPORT");
 		BDDAssertions.then(personResponseEntity.getBody().getType()).isEqualTo("Petrol Car");
 
