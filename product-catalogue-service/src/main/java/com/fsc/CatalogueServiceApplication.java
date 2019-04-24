@@ -1,12 +1,12 @@
-package hello;
+package com.fsc;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class ContractRestServiceApplication {
+public class CatalogueServiceApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(ContractRestServiceApplication.class, args);
+		SpringApplication.run(CatalogueServiceApplication.class, args);
 	}
 }

@@ -63,7 +63,7 @@
 				<version>${spring-cloud-contract.version}</version>
 				<extensions>true</extensions>
 				<configuration>
-					<baseClassForTests>hello.BaseClass</baseClassForTests>
+					<baseClassForTests>com.fsc.BaseClass</baseClassForTests>
 				</configuration>
 			</plugin>
 		</plugins>

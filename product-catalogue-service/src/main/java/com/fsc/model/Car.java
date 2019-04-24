@@ -1,18 +1,21 @@
-package hello;
+package com.fsc.model;
 
-class Person {
+public class Car {
 
-	Person(Long id, String name, String surname) {
+	public Car() {
+	}
+
+	public Car(Long id, String name, String type) {
 		this.id = id;
 		this.name = name;
-		this.surname = surname;
+		this.type = type;
 	}
 
 	private Long id;
 
 	private String name;
 
-	private String surname;
+	private String type;
 
 	public Long getId() {
 		return id;
@@ -30,11 +33,12 @@ class Person {
 		this.name = name;
 	}
 
-	public String getSurname() {
-		return surname;
+	public String getType() {
+		return type;
 	}
 
-	public void setSurname(String surname) {
-		this.surname = surname;
+	public void setType(String type) {
+		this.type = type;
 	}
+
 }

@@ -1,4 +1,4 @@
-package hello;
+package com.mark;
 
 import org.assertj.core.api.BDDAssertions;
 import org.junit.Rule;
@@ -11,13 +11,15 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.web.client.RestTemplate;
 
+import com.mark.model.Car;
+
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class ContractRestClientApplicationTest {
 
 	@Rule
 	public StubRunnerRule stubRunnerRule = new StubRunnerRule()
-		.downloadStub("com.example", "contract-rest-service", "0.0.1-SNAPSHOT", "stubs")
+		.downloadStub("com.example", "product-catalogue-service", "0.0.1-SNAPSHOT", "stubs")
 		.withPort(8100)
 		.stubsMode(StubRunnerProperties.StubsMode.LOCAL);
 
@@ -27,13 +29,13 @@ public class ContractRestClientApplicationTest {
 		RestTemplate restTemplate = new RestTemplate();
 		
 		// when:
-		ResponseEntity<Person> personResponseEntity = restTemplate.getForEntity("http://localhost:8100/person/1", Person.class);
+		ResponseEntity<Car> personResponseEntity = restTemplate.getForEntity("http://localhost:8100/person/1", Car.class);
 
 		// then:
 		BDDAssertions.then(personResponseEntity.getStatusCodeValue()).isEqualTo(200);
 		BDDAssertions.then(personResponseEntity.getBody().getId()).isEqualTo(1l);
 		BDDAssertions.then(personResponseEntity.getBody().getName()).isEqualTo("foo");
-		BDDAssertions.then(personResponseEntity.getBody().getSurname()).isEqualTo("bee");
+		BDDAssertions.then(personResponseEntity.getBody().getType()).isEqualTo("bee");
 		
 	}
 }
